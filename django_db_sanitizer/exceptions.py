@@ -10,8 +10,4 @@ class RegistryException(DbSanitizerException):
     pass
 
 
-class AlreadyRegisteredException(RegistryException):
-    pass
-
-
 # Exception classes used for all sanitizers
