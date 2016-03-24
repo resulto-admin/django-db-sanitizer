@@ -15,7 +15,7 @@ class SanitizerRegistry(object):
     def __str__(self):
         return "SanitizerRegistry"
 
-    def register(self, model_class, sanitizer_class=None, updater_class=None,
+    def register(self, model_class, sanitizer_class, updater_class=None,
                  **options):
         """Registers the given Django model with the given sanitizing strategy
         class. The model should be a Model class, not an instance.
@@ -28,20 +28,18 @@ class SanitizerRegistry(object):
         :param options:
         :raises ImproperlyConfigured:
             if the given model is an abstract model
-            if the given strategy class is not a subclass of BaseSanitizer
+            if the given sanitizer class is not a subclass of BaseSanitizer
+            if the given updater class is not a subclass of BaseUpdater
         """
         if model_class._meta.abstract:
             raise ImproperlyConfigured(
                 "The {0} model is abstract, so it cannot be sanitized."
                 .format(model_class.__name__))
 
-        if sanitizer_class:
-            if not issubclass(sanitizer_class, sanitizers.BaseSanitizer):
-                raise ImproperlyConfigured(
-                    "The {0} sanitizer is not a subclass of BaseSanitizer."
-                    .format(sanitizer_class.__name__))
-        else:
-            sanitizer_class = getattr(sanitizers, settings.DEFAULT_SANITIZER)
+        if not issubclass(sanitizer_class, sanitizers.BaseSanitizer):
+            raise ImproperlyConfigured(
+                "The {0} sanitizer is not a subclass of BaseSanitizer."
+                .format(sanitizer_class.__name__))
 
         if updater_class:
             if not issubclass(updater_class, updaters.BaseUpdater):

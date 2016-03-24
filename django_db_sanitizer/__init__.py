@@ -2,12 +2,15 @@ from django.utils.module_loading import autodiscover_modules
 
 from django_db_sanitizer.registry import SanitizerRegistry, sanitizer_registry
 from django_db_sanitizer.sanitizers import (
-    NullSanitizer,
+    RandomAddressSanitizer, RandomEmailSanitizer, NullSanitizer, ZeroSanitizer,
+    SimplePasswordSanitizer, FixedFormatSanitizer, LoremIpsumSanitizer
 )
 
 
 __all__ = [
-    "register", "NullSanitizer", "autodiscover",
+    "register", "RandomAddressSanitizer", "RandomEmailSanitizer",
+    "NullSanitizer", "ZeroSanitizer", "SimplePasswordSanitizer",
+    "FixedFormatSanitizer", "LoremIpsumSanitizer", "autodiscover",
 ]
 
 
