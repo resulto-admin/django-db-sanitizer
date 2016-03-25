@@ -256,24 +256,6 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$24000$4x19TkyoQHvq$8o5ObdLZIx7+i9Tf3WtxfNR3/q6kD1kKVgm9pODjWaU=",
-        "last_login": "2016-03-24T17:57:43.887",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "PasswordIs",
-        "last_name": "test",
-        "email": "admin@test.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2016-03-24T17:57:25.294",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
         "is_superuser": false,
@@ -290,7 +272,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 3,
+    "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -308,7 +290,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 4,
+    "pk": 3,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -326,7 +308,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 5,
+    "pk": 4,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -344,7 +326,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 6,
+    "pk": 5,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -362,7 +344,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 7,
+    "pk": 6,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -380,7 +362,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 8,
+    "pk": 7,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -398,7 +380,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 9,
+    "pk": 8,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -416,7 +398,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 10,
+    "pk": 9,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -434,7 +416,7 @@
 },
 {
     "model": "auth.user",
-    "pk": 11,
+    "pk": 10,
     "fields": {
         "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
         "last_login": null,
@@ -451,13 +433,49 @@
     }
 },
 {
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$4x19TkyoQHvq$8o5ObdLZIx7+i9Tf3WtxfNR3/q6kD1kKVgm9pODjWaU=",
+        "last_login": "2016-03-24T17:57:43.887",
+        "is_superuser": true,
+        "username": "admin1",
+        "first_name": "PasswordIs",
+        "last_name": "test",
+        "email": "admin1@test.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:25.294",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$4x19TkyoQHvq$8o5ObdLZIx7+i9Tf3WtxfNR3/q6kD1kKVgm9pODjWaU=",
+        "last_login": "2016-03-24T17:57:43.887",
+        "is_superuser": true,
+        "username": "admin2",
+        "first_name": "PasswordWill",
+        "last_name": "BeSanitized",
+        "email": "admin2@test.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:25.294",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "test_app.profile",
     "pk": 1,
     "fields": {
-        "user": 2,
-        "card_number": "000 000 000 002",
-        "phone": "514-111-1002",
-        "mobile_phone": "438-111-1002",
+        "user": 1,
+        "card_number": "000 000 000 001",
+        "phone": "514-111-1001",
+        "mobile_phone": "438-111-1001",
         "address": "55 Cool St.",
         "city": "Coolcity",
         "zip_code": "H0H 0H0",
@@ -476,8 +494,8 @@
     "model": "test_app.profile",
     "pk": 2,
     "fields": {
-        "user": 3,
-        "card_number": "000 000 000 003",
+        "user": 2,
+        "card_number": "000 000 000 002",
         "phone": "",
         "mobile_phone": "",
         "address": "2001 Awesome St.",
@@ -498,10 +516,10 @@
     "model": "test_app.profile",
     "pk": 3,
     "fields": {
-        "user": 4,
-        "card_number": "000 000 000 004",
-        "phone": "514-111-1004",
-        "mobile_phone": "438-111-1004",
+        "user": 3,
+        "card_number": "000 000 000 003",
+        "phone": "514-111-1003",
+        "mobile_phone": "438-111-1003",
         "address": "",
         "city": "",
         "zip_code": "",
@@ -520,8 +538,8 @@
     "model": "test_app.profile",
     "pk": 4,
     "fields": {
-        "user": 5,
-        "card_number": "000 000 000 005",
+        "user": 4,
+        "card_number": "000 000 000 004",
         "phone": "0118 999 881 999 119 725 3",
         "mobile_phone": "",
         "address": "55 Mediocre St.",
@@ -538,10 +556,10 @@
     "model": "test_app.profile",
     "pk": 5,
     "fields": {
-        "user": 6,
-        "card_number": "000 000 000 006",
+        "user": 5,
+        "card_number": "000 000 000 005",
         "phone": "",
-        "mobile_phone": "438-111-1006",
+        "mobile_phone": "438-111-1005",
         "address": "55 Okay St.",
         "city": "Okaycity",
         "zip_code": "H0H 0H0",
@@ -560,10 +578,10 @@
     "model": "test_app.profile",
     "pk": 6,
     "fields": {
-        "user": 7,
-        "card_number": "000 000 000 007",
-        "phone": "514-111-1007",
-        "mobile_phone": "438-111-1007",
+        "user": 6,
+        "card_number": "000 000 000 006",
+        "phone": "514-111-1006",
+        "mobile_phone": "438-111-1006",
         "address": "55 Bad St.",
         "city": "Badcity",
         "zip_code": "H0H 0H0",
@@ -582,10 +600,10 @@
     "model": "test_app.profile",
     "pk": 7,
     "fields": {
-        "user": 8,
-        "card_number": "000 000 000 008",
-        "phone": "514-111-1008",
-        "mobile_phone": "438-111-1008",
+        "user": 7,
+        "card_number": "000 000 000 007",
+        "phone": "514-111-1007",
+        "mobile_phone": "438-111-1007",
         "address": "55 Good St.",
         "city": "Goodcity",
         "zip_code": "H0H 0H0",
@@ -604,10 +622,10 @@
     "model": "test_app.profile",
     "pk": 8,
     "fields": {
-        "user": 9,
-        "card_number": "000 000 000 009",
-        "phone": "514-111-1009",
-        "mobile_phone": "438-111-1009",
+        "user": 8,
+        "card_number": "000 000 000 008",
+        "phone": "514-111-1008",
+        "mobile_phone": "438-111-1008",
         "address": "55 Meh St.",
         "city": "Mehcity",
         "zip_code": "H0H 0H0",
@@ -626,10 +644,10 @@
     "model": "test_app.profile",
     "pk": 9,
     "fields": {
-        "user": 10,
-        "card_number": "000 000 000 010",
-        "phone": "514-111-1010",
-        "mobile_phone": "438-111-1010",
+        "user": 9,
+        "card_number": "000 000 000 009",
+        "phone": "514-111-1009",
+        "mobile_phone": "438-111-1009",
         "address": "55 Cool St.",
         "city": "Coolcity",
         "zip_code": "H0H 0H0",
@@ -648,10 +666,10 @@
     "model": "test_app.profile",
     "pk": 10,
     "fields": {
-        "user": 11,
-        "card_number": "000 000 000 011",
-        "phone": "514-111-1011",
-        "mobile_phone": "438-111-1011",
+        "user": 10,
+        "card_number": "000 000 000 010",
+        "phone": "514-111-1010",
+        "mobile_phone": "438-111-1010",
         "address": "55 Cool St.",
         "city": "Coolcity",
         "zip_code": "H0H 0H0",

@@ -6,13 +6,9 @@ class NullSanitizer(BaseSanitizer):
     to `None` values in the database.
     """
 
-    def execute(self):
-        """Overrides BaseSanitizer functionality to simply update all
+    def sanitize(self, item_set):
+        """Overrides BaseSanitizer sanitize to simply update all
         given fields to a `None` value.
         """
         update_dict = {f: None for f in self.fields_to_sanitize}
-
-        self.model_class.objects\
-            .filter(**self.filters_for_fetching)\
-            .exclude(**self.excludes_for_fetching)\
-            .update(**update_dict)
+        item_set.update(**update_dict)

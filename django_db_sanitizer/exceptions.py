@@ -11,3 +11,6 @@ class RegistryException(DbSanitizerException):
 
 
 # Exception classes used for all sanitizers
+
+class SanitizerException(DbSanitizerException):
+    pass

@@ -51,6 +51,11 @@ class SanitizerRegistry(object):
 
         # Ignore the registration if the model has been swapped out.
         if not model_class._meta.swapped:
+            if options:
+                options['__module__'] = __name__
+                sanitizer_class = \
+                    type("{0}Sanitizer".format(model_class.__name__),
+                         (sanitizer_class,), options)
             # Instantiate the sanitizer class to save in the registry
             sanitizer_obj = sanitizer_class(model_class, updater_class, self)
             self._registry[model_class].append(sanitizer_obj)
