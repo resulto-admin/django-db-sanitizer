@@ -84,14 +84,3 @@ class BaseSanitizer(object):
         :return: Sanitized field value
         """
         return field_value
-
-
-
-# Note : use iterator while getting rows to prevent memory issues
-# Ex:
-# foo_set = Foo.objects.all()
-# # One database query to test if any rows exist.
-# if foo_set.exists():
-#     # Another database query to start fetching the rows in batches.
-#     for foo in foo_set.iterator():
-#         print(foo.bar)

@@ -47,8 +47,8 @@ class SingleValuePerFieldRowUpdater(BaseUpdater):
         """
         model_class = self.sanitizer.model_class
         pk_field = self.sanitizer.get_pk_field_name()
-        update_dict = {}
         for values_row in self.item_list:
+            update_dict = {}
             for field_name in self.sanitizer.fields_to_sanitize:
                 field_value = values_row[field_name]
                 sanitized_value = \

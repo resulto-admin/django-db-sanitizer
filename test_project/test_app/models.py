@@ -22,6 +22,9 @@ class Profile(models.Model):
     awesomeness_rank = models.IntegerField(blank=True, default=0)
     importance_rank = models.IntegerField(blank=True, default=0)
 
+    number_of_cars = models.IntegerField(blank=True, default=0)
+    number_of_computers = models.IntegerField(blank=True, default=0)
+
     month_of_birth = models.CharField(
         max_length=3, choices=MONTHS, blank=True, null=True)
     day_of_birth = models.IntegerField(
