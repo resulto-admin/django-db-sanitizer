@@ -4,8 +4,8 @@ from django.utils.six import python_2_unicode_compatible
 @python_2_unicode_compatible
 class BaseUpdater(object):
 
-    def __init__(self, item_set, sanitizer_object):
-        self.item_set = item_set
+    def __init__(self, item_list, sanitizer_object):
+        self.item_list = item_list
         self.sanitizer = sanitizer_object
         super(BaseUpdater, self).__init__()
 
@@ -19,7 +19,7 @@ class BaseUpdater(object):
         self.update()
 
     def update(self):
-        """Parses self.item_set and saves the sanitized results in the
+        """Parses self.item_list and saves the sanitized results in the
         database.
 
         Override this method in concrete Updater classes.

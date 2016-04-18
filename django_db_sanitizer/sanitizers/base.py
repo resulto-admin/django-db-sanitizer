@@ -28,34 +28,50 @@ class BaseSanitizer(object):
         """Orchestrates the sanitization process for the configured model and
         fields.
         """
-        item_set = self.fetch()
-        self.sanitize(item_set)
+        item_list = self.fetch()
+        self.sanitize(item_list)
+
+    def get_queryset(self):
+        """Returns a queryset of the Model class using the Sanitizer class'
+        configured filters and exclusions for fetching.
+
+        :return: A queryset of rows with filtering rules applied
+        :rtype: QuerySet
+        """
+        qs = self.model_class.objects\
+            .filter(**self.filters_for_fetching)\
+            .exclude(**self.excludes_for_fetching)
+        return qs
+
+    def get_pk_field_name(self):
+        """Returns the field name of the Model class' primary key field.
+
+        :return: The PK field name
+        :rtype: str
+        """
+        return self.model_class._meta.pk.name
 
     def fetch(self):
-        """Returns a queryset returning a .values_list() of the Model's
+        """Returns a queryset returning a .values() of the Model's
         primary key field and the sanitizer's `fields_to_sanitize` fields.
 
         :return: A queryset of all the rows with fields to sanitize
         :rtype: QuerySet
         """
-        pk_field = self.model_class._meta.pk.name
+        pk_field = self.get_pk_field_name()
         required_fields = (pk_field, *tuple(f for f in self.fields_to_sanitize
                                             if f != pk_field))
 
-        item_set = self.model_class.objects\
-            .filter(**self.filters_for_fetching)\
-            .exclude(**self.excludes_for_fetching)\
-            .values_list(*required_fields, flat=False)
+        item_list = self.get_queryset().values(*required_fields)
+        return item_list
 
-        return item_set
-
-    def sanitize(self, item_set):
+    def sanitize(self, item_list):
         """Manages the usage of the sanitizer's associated updater.
 
-        :param QuerySet item_set: QuerySet of rows with fields to sanitize
+        :param QuerySet item_list: QuerySet of rows with fields to sanitize
         :return:
         """
-        updater = self.updater_class(item_set, self)
+        updater = self.updater_class(item_list, self)
         updater.execute()
 
     def sanitize_field_value(self, field_value):

@@ -19,6 +19,9 @@ class Profile(models.Model):
     state = models.CharField(max_length=100, blank=True, default="")
     country = models.CharField(max_length=100, blank=True, default="")
 
+    awesomeness_rank = models.IntegerField(blank=True, default=0)
+    importance_rank = models.IntegerField(blank=True, default=0)
+
     month_of_birth = models.CharField(
         max_length=3, choices=MONTHS, blank=True, null=True)
     day_of_birth = models.IntegerField(

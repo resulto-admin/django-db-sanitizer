@@ -19,7 +19,7 @@ class PasswordSanitizer(BaseSanitizer):
 
     password = "12345"
 
-    def sanitize(self, item_set):
+    def sanitize(self, item_list):
         """Overrides BaseSanitizer sanitize to simply update all
         given fields to the password value configured at the class level.
         """
@@ -28,7 +28,7 @@ class PasswordSanitizer(BaseSanitizer):
         encoded_password = hasher.encode(self.password, salt)
 
         update_dict = {f: encoded_password for f in self.fields_to_sanitize}
-        item_set.update(**update_dict)
+        item_list.update(**update_dict)
 
     def get_hasher(self):
         if self.algorithm == 'default':
