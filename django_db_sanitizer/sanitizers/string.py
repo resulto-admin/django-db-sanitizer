@@ -9,7 +9,7 @@ class LoremIpsumSanitizer(BaseSanitizer):
 
     # TODO Add per-field config of how long the strings should be
 
-    def sanitize_field_value(self, field_value):
+    def sanitize(self, row_object, field_name, field_value):
         """
 
         :param field_value: Value of a field to be sanitized
@@ -22,7 +22,7 @@ class FixedFormatSanitizer(BaseSanitizer):
 
     # Config for expected format
 
-    def sanitize_field_value(self, field_value):
+    def sanitize(self, row_object, field_name, field_value):
         """
 
         :param field_value: Value of a field to be sanitized
@@ -32,39 +32,42 @@ class FixedFormatSanitizer(BaseSanitizer):
 
 
 class RandomTextSanitizer(BaseSanitizer):
+    """This text sanitizer is useful to preserve the general visual appearance
+    of a small text or message while obfuscating its actual content.
 
-    preserve_punctuation = True
+    It is best used with small paragraphs of text.
+    """
 
-    punctuation_chars = '.,!?;:'
+    all_punctuation_chars = '.,!?;:'
+    sentence_ending_punctuation_chars = ".!?"
 
-    allowed_chars = 'abcdefghijklmnopqrstuvwxyz' \
-                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ' \
-                    '0123456789'
+    allowed_chars = 'abcdefghijklmnopqrstuvwxyz'
 
-    # Get all words of configured fields, and use django crypto
-    # get_random_string for each one? Likely super slow but perhaps the only
-    # way that'd be safe.
+    def sanitize(self, row_object, field_name, field_value):
+        """Converts every word found in the text of `field_value` into a
+        random string. Preserves punctuation found in the text. Does not
+        preserve whitespace other than regular spacing between words.
 
-    def sanitize_field_value(self, field_value):
-        """Executes the sanitizing operation on a single field and returns
-        the result.
-
-        Override this method in concrete Sanitizer classes.
-
-        :param field_value: Value of a field to be sanitized
+        :param field_value: Value of the text field to randomize
         :return: Sanitized field value
         """
-        # TODO alternative when preserve_punctuation is false
         sanitized_tokens = []
-        tokens = re.findall(r"[\w'] + |[" + self.punctuation_chars + "]",
-                            field_value)
+        format = r"[\w']+|[" + self.all_punctuation_chars + "]"
+        tokens = re.findall(format, field_value)
 
+        new_sentence = True
         for token in tokens:
-            if token in self.punctuation_chars:
-                sanitized_tokens.append(token)
+            if token in self.all_punctuation_chars:
+                new_token = "".join([sanitized_tokens[-1], token])
+                sanitized_tokens[-1] = new_token
+                if token in self.sentence_ending_punctuation_chars:
+                    new_sentence = True
             else:
                 new_token = get_random_string(len(token),
                                               allowed_chars=self.allowed_chars)
+                if new_sentence:
+                    new_token = new_token.capitalize()
+                    new_sentence = False
                 sanitized_tokens.append(new_token)
 
         return " ".join(sanitized_tokens)

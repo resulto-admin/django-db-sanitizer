@@ -700,7 +700,7 @@
         "year_of_birth": 1987,
         "date_of_birth": "1987-06-10",
         "money_balance": "345.23",
-        "internal_notes": "This person lives in Coolcity.\r\n\r\nThis person is eligible to this month's Coolpromotion.",
+        "internal_notes": "Cette personne réside à Coolcity, Coolstate.\r\n\r\nElle est éligible à la Coolpromotion du mois: du champagne!",
         "is_subscribed_to_mailing": true
     }
 }

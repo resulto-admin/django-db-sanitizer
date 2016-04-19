@@ -61,8 +61,8 @@ DATABASES = {
     }
 }
 
-# Testing with postgres
-# (Don't forget to install psycopg2)
+# Testing with PostgreSQL
+# (Don't forget to install psycopg2 and setup your local database)
 # DATABASES = {
 #         "default": {
 #             "ENGINE": "django.db.backends.postgresql_psycopg2",
