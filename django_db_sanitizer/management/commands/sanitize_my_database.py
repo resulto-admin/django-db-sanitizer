@@ -24,9 +24,9 @@ class Command(BaseCommand):
         #     raise CommandError("--db-name option value must be provided.")
 
         registry = sanitizer_registry.get_registry()
-        for model_class, sanitizer_list in registry.items():
-            for sanitizer in sanitizer_list:
-                sanitizer.execute()
+        for model_class, worker_list in registry.items():
+            for worker in worker_list:
+                worker.execute()
 
         stop = time.time()
         print("Took {0:.3f}s".format(stop - start))

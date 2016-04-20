@@ -36,6 +36,7 @@ class Profile(models.Model):
         max_digits=14, decimal_places=2, default=0)
 
     internal_notes = models.TextField(default="", blank=True)
+    admin_notes = models.TextField(default="", blank=True, max_length=500)
 
     is_subscribed_to_mailing = models.BooleanField(default=True)
 

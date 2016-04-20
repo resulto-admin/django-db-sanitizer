@@ -1,5 +1,6 @@
 import logging
 
+from django_db_sanitizer.exceptions import UpdaterException
 from django_db_sanitizer.updaters.base import BaseUpdater
 
 
@@ -23,13 +24,14 @@ class SingleValuePerFieldUpdater(BaseUpdater):
         update_dict = {}
         try:
             values_row = self.item_list[0]
-        except KeyError:
-            logger.warning("No items found in item_list. Try to review the "
-                           "Sanitizer's queryset fetching related attributes.")
+        except IndexError:
+            raise UpdaterException(
+                "No items found in {0}'s item_list. Try to review the Fetcher "
+                "class' queryset fetching related attributes.".format(self))
         else:
             for field_name in self.fields_to_sanitize:
                 field_value = values_row[field_name]
-                sanitized_value = self.sanitizer.sanitize(
+                sanitized_value = self.sanitizer.execute(
                     values_row, field_name, field_value)
                 update_dict[field_name] = sanitized_value
 
@@ -50,7 +52,7 @@ class SingleValuePerFieldRowUpdater(BaseUpdater):
             update_dict = {}
             for field_name in self.fields_to_sanitize:
                 field_value = values_row[field_name]
-                sanitized_value = self.sanitizer.sanitize(
+                sanitized_value = self.sanitizer.execute(
                     values_row, field_name, field_value)
                 update_dict[field_name] = sanitized_value
 

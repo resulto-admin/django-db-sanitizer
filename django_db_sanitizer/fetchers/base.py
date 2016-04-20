@@ -41,6 +41,9 @@ class BaseFetcher(object):
         qs = self.get_queryset_manager()\
             .filter(**self.filters_for_fetching)\
             .exclude(**self.excludes_for_fetching)
+        if qs.count() == 0:
+            logger.warning("{0} is showing 0 results for its fetching query! "
+                           "This is the query : '{1}'".format(self, qs.query))
         return qs
 
     def get_filtered_queryset_values(self, field_names, include_pk_field=True):

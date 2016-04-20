@@ -14,7 +14,7 @@ Requirements
 ------------
 
 django-db-sanitizer works and has been tested with Python 2.7 and 3.5.
-It requires Django 1.7+
+It requires Django 1.8+
 
 Installation
 ------------

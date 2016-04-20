@@ -14,3 +14,13 @@ class RegistryException(DbSanitizerException):
 
 class SanitizerException(DbSanitizerException):
     pass
+
+
+class SanitizerValidationException(DbSanitizerException):
+    pass
+
+
+# Exception classes used for all updaters
+
+class UpdaterException(DbSanitizerException):
+    pass

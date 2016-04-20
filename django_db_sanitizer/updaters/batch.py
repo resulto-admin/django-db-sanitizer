@@ -21,7 +21,7 @@ class BatchMultiValuePostgresUpdater(BaseUpdater):
         for i, values_row in enumerate(self.item_list.iterator(), 1):
             for field_name in self.fields_to_sanitize:
                 field_value = values_row[field_name]
-                sanitized_value = self.sanitizer.sanitize(
+                sanitized_value = self.sanitizer.execute(
                     values_row, field_name, field_value)
 
                 pk_value = values_row[self.model_pk_field]
