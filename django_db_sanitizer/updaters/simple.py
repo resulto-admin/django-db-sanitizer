@@ -7,16 +7,18 @@ logger = logging.getLogger(__name__)
 
 
 class SingleValuePerFieldUpdater(BaseUpdater):
-    """Use this updater to set the same value to all rows of a given field as
-    returned by the Sanitizer class' `fetch` method.
+    """Use this updater to set the same value to all rows of a given field.
     Each field may receive a different value, depending on the sanitizer.
+
+    Note: If using a custom Fetcher class with filters and/or excludes, this
+    updater will not update rows not returned by the resulting queryset!
     """
 
     def update(self):
         """
-        Calls `sanitize_field_value` on the first row/value for each field
-        queryset and applies the resulting sanitized value to all rows of the
-        field for all fields in the sanitizer's `fields_to_sanitize`.
+        Calls `sanitize` on the first row/value for each field, from
+        `fields_to_sanitize`, in the queryset and applies the resulting
+        sanitized value to all rows of the field.
         """
         update_dict = {}
         try:
@@ -25,36 +27,36 @@ class SingleValuePerFieldUpdater(BaseUpdater):
             logger.warning("No items found in item_list. Try to review the "
                            "Sanitizer's queryset fetching related attributes.")
         else:
-            for field_name in self.sanitizer.fields_to_sanitize:
+            for field_name in self.fields_to_sanitize:
                 field_value = values_row[field_name]
-                sanitized_value = \
-                    self.sanitizer.sanitize_field_value(field_value)
+                sanitized_value = self.sanitizer.sanitize(
+                    values_row, field_name, field_value)
                 update_dict[field_name] = sanitized_value
 
-            self.sanitizer.get_queryset().update(**update_dict)
+            self.fetcher.get_filtered_queryset().update(**update_dict)
 
 
 class SingleValuePerFieldRowUpdater(BaseUpdater):
-    """Use this updater to set a different value to rows of a given field
-    (as returned by the Sanitizer class' `fetch` method).
+    """Use this updater to set a different value to rows of a given field.
     """
 
     def update(self):
         """
-        Calls `sanitize_field_value` on each row/value for each field
-        queryset and applies the resulting sanitized value to that row for all
-        fields in the sanitizer's `fields_to_sanitize`.
+        Calls `sanitize` on each row/value for each field, from
+        `fields_to_sanitize`, in the queryset and applies the resulting
+        sanitized value to that field.
         """
-        model_class = self.sanitizer.model_class
-        pk_field = self.sanitizer.get_pk_field_name()
         for values_row in self.item_list:
             update_dict = {}
-            for field_name in self.sanitizer.fields_to_sanitize:
+            for field_name in self.fields_to_sanitize:
                 field_value = values_row[field_name]
-                sanitized_value = \
-                    self.sanitizer.sanitize_field_value(field_value)
+                sanitized_value = self.sanitizer.sanitize(
+                    values_row, field_name, field_value)
                 update_dict[field_name] = sanitized_value
 
-            pk_value = values_row[pk_field]
-            filter_dict = {pk_field: pk_value}
-            model_class.objects.filter(**filter_dict).update(**update_dict)
+            pk_value = values_row[self.model_pk_field]
+            filter_dict = {self.model_pk_field: pk_value}
+
+            self.fetcher.get_queryset_manager()\
+                .filter(**filter_dict)\
+                .update(**update_dict)

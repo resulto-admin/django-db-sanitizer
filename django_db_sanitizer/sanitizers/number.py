@@ -4,20 +4,16 @@ from django_db_sanitizer.sanitizers.base import BaseSanitizer
 
 
 class ZeroSanitizer(BaseSanitizer):
-    """Sanitizes configured fields in `fields_to_sanitize` by updating them
-    to 0 in the database.
+    """Sanitizes configured fields by updating them to 0 in the database.
     """
 
-    def execute(self):
-        """Overrides BaseSanitizer functionality to simply update all
-        given fields to a 0 value.
-        """
-        update_dict = {f: 0 for f in self.fields_to_sanitize}
+    def sanitize(self, row_object, field_name, field_value):
+        """Simply returns 0.
 
-        self.model_class.objects\
-            .filter(**self.filters_for_fetching)\
-            .exclude(**self.excludes_for_fetching)\
-            .update(**update_dict)
+        :return: 0 integer
+        :rtype: int
+        """
+        return 0
 
 
 class RandomIntegerSanitizer(BaseSanitizer):
@@ -28,11 +24,9 @@ class RandomIntegerSanitizer(BaseSanitizer):
     lower_boundary = 0
     higher_boundary = 10000
 
-    def sanitize_field_value(self, field_value):
-        """Returns a random integer. The given `field_value` parameter is
-        ignored.
+    def sanitize(self, row_object, field_name, field_value):
+        """Returns a random integer. The given parameters are ignored.
 
-        :param field_value: Value of a field to be sanitized
         :return: Random integer
         :rtype: int
         """

@@ -2,9 +2,9 @@ from django_db_sanitizer.sanitizers.base import BaseSanitizer
 
 
 class RandomAddressSanitizer(BaseSanitizer):
-    """Sanitizes configured fields in `fields_to_sanitize` by updating them
-    with randomized addresses. The addresses generated are nonsensical and
-    will not actually represent existing addresses.
+    """Sanitizes fields by updating them with randomized addresses.
+    The addresses generated are nonsensical and will not actually represent
+    existing addresses.
     """
 
     # Some setup/config to split the data generation by element would be nice
@@ -14,7 +14,7 @@ class RandomAddressSanitizer(BaseSanitizer):
     #   etc...
 
 
-    def sanitize_field_value(self, field_value):
+    def sanitize(self, row_object, field_name, field_value):
         """Executes the sanitizing operation on a single field and returns
         the result.
 

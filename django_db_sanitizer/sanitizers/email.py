@@ -15,7 +15,7 @@ class RandomEmailSanitizer(BaseSanitizer):
     # Domain config? If None reuse domain found in field_value if possible
 
 
-    def sanitize_field_value(self, field_value):
+    def sanitize_field_value(self, row_object, field_name, field_value):
         """
 
         :param field_value: Value of a field to be sanitized
