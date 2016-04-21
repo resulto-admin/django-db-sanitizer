@@ -60,8 +60,9 @@ class BaseFetcher(object):
 
         if include_pk_field:
             pk_field = self.get_model_pk_field_name()
-            required_fields = (pk_field, *tuple(f for f in field_names
-                                                if f != pk_field))
+
+            required_fields = (pk_field,) + tuple(f for f in field_names
+                                                  if f != pk_field)
         else:
             required_fields = tuple(f for f in field_names)
 

@@ -112,7 +112,8 @@ class RandomTextSanitizer(BaseSanitizer):
         :return: Sanitized field value
         """
         sanitized_tokens = []
-        format = r"[\w']+|[" + self.all_punctuation_chars + "]"
+        format = re.compile(r"[\w']+|[" + self.all_punctuation_chars + "]",
+                            re.UNICODE)
         tokens = re.findall(format, field_value)
 
         new_sentence = True
