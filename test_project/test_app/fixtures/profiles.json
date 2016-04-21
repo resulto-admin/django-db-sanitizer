@@ -1,0 +1,455 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_001",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 001",
+        "email": "sanitizer_sqlite3_001@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_002",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 002",
+        "email": "sanitizer_sqlite3_002@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_003",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 003",
+        "email": "sanitizer_sqlite3_003@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_004",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 004",
+        "email": "sanitizer_sqlite3_004@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_005",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 005",
+        "email": "sanitizer_sqlite3_005@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_006",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 006",
+        "email": "sanitizer_sqlite3_006@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_007",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 007",
+        "email": "sanitizer_sqlite3_007@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_008",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 008",
+        "email": "sanitizer_sqlite3_008@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_009",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 009",
+        "email": "sanitizer_sqlite3_009@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$zvVBaDJ9dXS6$WyGatpsDEB3h0tbkTvaY8gqa0zrc4y4bpozrdItjODY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sanitizer_sqlite3_010",
+        "first_name": "Sanitizer",
+        "last_name": "SQLite3 010",
+        "email": "sanitizer_sqlite3_010@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:52",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$4x19TkyoQHvq$8o5ObdLZIx7+i9Tf3WtxfNR3/q6kD1kKVgm9pODjWaU=",
+        "last_login": "2016-03-24T17:57:43.887",
+        "is_superuser": true,
+        "username": "admin1",
+        "first_name": "PasswordIs",
+        "last_name": "test",
+        "email": "admin1@test.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:25.294",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$4x19TkyoQHvq$8o5ObdLZIx7+i9Tf3WtxfNR3/q6kD1kKVgm9pODjWaU=",
+        "last_login": "2016-03-24T17:57:43.887",
+        "is_superuser": true,
+        "username": "admin2",
+        "first_name": "PasswordWill",
+        "last_name": "BeSanitized",
+        "email": "admin2@test.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-03-24T17:57:25.294",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "card_number": "000 000 000 001",
+        "phone": "514-111-1001",
+        "mobile_phone": "438-111-1001",
+        "address": "55 Cool St.",
+        "city": "Coolcity",
+        "zip_code": "H0H 0H0",
+        "state": "Coolstate",
+        "country": "Coolcountry",
+        "awesomeness_rank": 1,
+        "importance_rank": 1,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "0",
+        "internal_notes": "This person lives in Coolcity.\r\n\r\nThis person is eligible to this month's Coolpromotion.",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "card_number": "000 000 000 002",
+        "phone": "",
+        "mobile_phone": "",
+        "address": "2001 Awesome St.",
+        "city": "Awesomecity",
+        "zip_code": "H0H 0H0",
+        "state": "Awesomestate",
+        "country": "Awesomecountry",
+        "awesomeness_rank": 2,
+        "importance_rank": 2,
+        "month_of_birth": "jun",
+        "day_of_birth": 22,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-22",
+        "money_balance": "789234.12",
+        "internal_notes": "This person lives in Awesomecity.\r\n\r\nThis person is eligible to this month's Awesomepromotion.",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "card_number": "000 000 000 003",
+        "phone": "514-111-1003",
+        "mobile_phone": "438-111-1003",
+        "address": "",
+        "city": "",
+        "zip_code": "",
+        "state": "",
+        "country": "",
+        "awesomeness_rank": 3,
+        "importance_rank": 3,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "0",
+        "internal_notes": "",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 4,
+    "fields": {
+        "user": 4,
+        "card_number": "000 000 000 004",
+        "phone": "0118 999 881 999 119 725 3",
+        "mobile_phone": "",
+        "address": "55 Mediocre St.",
+        "city": "Mediocrecity",
+        "zip_code": "H0H 0H0",
+        "state": "Mediocrestate",
+        "country": "Mediocrecountry",
+        "awesomeness_rank": 4,
+        "importance_rank": 4,
+        "year_of_birth": 1987,
+        "money_balance": "3.00",
+        "internal_notes": "This person lives in Mediocrecity.",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 5,
+    "fields": {
+        "user": 5,
+        "card_number": "000 000 000 005",
+        "phone": "",
+        "mobile_phone": "438-111-1005",
+        "address": "55 Okay St.",
+        "city": "Okaycity",
+        "zip_code": "H0H 0H0",
+        "state": "Okaystate",
+        "country": "Okaycountry",
+        "awesomeness_rank": 5,
+        "importance_rank": 5,
+        "month_of_birth": "jan",
+        "day_of_birth": 11,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-01-11",
+        "money_balance": "0",
+        "internal_notes": "",
+        "is_subscribed_to_mailing": false
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 6,
+    "fields": {
+        "user": 6,
+        "card_number": "000 000 000 006",
+        "phone": "514-111-1006",
+        "mobile_phone": "438-111-1006",
+        "address": "55 Bad St.",
+        "city": "Badcity",
+        "zip_code": "H0H 0H0",
+        "state": "Badstate",
+        "country": "Badcountry",
+        "awesomeness_rank": 6,
+        "importance_rank": 6,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "222.23",
+        "internal_notes": "This person lives in Badcity.\r\n\r\n",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 7,
+    "fields": {
+        "user": 7,
+        "card_number": "000 000 000 007",
+        "phone": "514-111-1007",
+        "mobile_phone": "438-111-1007",
+        "address": "55 Good St.",
+        "city": "Goodcity",
+        "zip_code": "H0H 0H0",
+        "state": "Goodstate",
+        "country": "Goodcountry",
+        "awesomeness_rank": 7,
+        "importance_rank": 7,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "11.23",
+        "internal_notes": "",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 8,
+    "fields": {
+        "user": 8,
+        "card_number": "000 000 000 008",
+        "phone": "514-111-1008",
+        "mobile_phone": "438-111-1008",
+        "address": "55 Meh St.",
+        "city": "Mehcity",
+        "zip_code": "H0H 0H0",
+        "state": "Mehstate",
+        "country": "Mehcountry",
+        "awesomeness_rank": 8,
+        "importance_rank": 8,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "664.23",
+        "internal_notes": "This person lives in Mehcity.\r\n\r\nThis person is eligible to this month's Mehpromotion.",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 9,
+    "fields": {
+        "user": 9,
+        "card_number": "000 000 000 009",
+        "phone": "514-111-1009",
+        "mobile_phone": "438-111-1009",
+        "address": "55 Cool St.",
+        "city": "Coolcity",
+        "zip_code": "H0H 0H0",
+        "state": "Coolstate",
+        "country": "Coolcountry",
+        "awesomeness_rank": 9,
+        "importance_rank": 9,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "345.23",
+        "internal_notes": "This person lives in Coolcity.\r\n\r\nThis person is eligible to this month's Coolpromotion.",
+        "is_subscribed_to_mailing": true
+    }
+},
+{
+    "model": "test_app.profile",
+    "pk": 10,
+    "fields": {
+        "user": 10,
+        "card_number": "000 000 000 010",
+        "phone": "514-111-1010",
+        "mobile_phone": "438-111-1010",
+        "address": "55 Cool St.",
+        "city": "Coolcity",
+        "zip_code": "H0H 0H0",
+        "state": "Coolstate",
+        "country": "Coolcountry",
+        "awesomeness_rank": 10,
+        "importance_rank": 10,
+        "month_of_birth": "jun",
+        "day_of_birth": 10,
+        "year_of_birth": 1987,
+        "date_of_birth": "1987-06-10",
+        "money_balance": "345.23",
+        "internal_notes": "Cette personne réside à Coolcity, Coolstate. Elle est éligible à la Coolpromotion du mois: du champagne!",
+        "is_subscribed_to_mailing": true
+    }
+}
+]
