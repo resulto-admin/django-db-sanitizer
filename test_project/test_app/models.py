@@ -8,7 +8,8 @@ from test_app.constants import MONTHS, DAY_OF_BIRTH
 @python_2_unicode_compatible
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name="profile")
-    card_number = models.CharField(max_length=250, blank=True, default="")
+    card_number = models.CharField(max_length=250, null=True, blank=True,
+                                   default="")
     initials = models.CharField(max_length=4, blank=True, default="")
 
     phone = models.CharField(max_length=100, blank=False, default="911")

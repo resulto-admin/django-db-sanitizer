@@ -406,7 +406,7 @@
         "username": "sanitizer_sqlite3_009",
         "first_name": "Sanitizer",
         "last_name": "SQLite3 009",
-        "email": "sanitizer_sqlite3_009@test.com",
+        "email": "",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2016-03-24T17:57:52",
@@ -555,6 +555,7 @@
         "country": "Mediocrecountry",
         "awesomeness_rank": 4,
         "importance_rank": 4,
+        "year_of_birth": 1987,
         "money_balance": "3.00",
         "internal_notes": "This person lives in Mediocrecity.",
         "is_subscribed_to_mailing": true
