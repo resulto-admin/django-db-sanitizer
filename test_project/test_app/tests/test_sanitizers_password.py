@@ -1,5 +1,3 @@
-from django.contrib.auth.hashers import make_password
-
 from django_db_sanitizer.exceptions import SanitizerValidationException
 from django_db_sanitizer.sanitizers.password import PasswordSanitizer
 

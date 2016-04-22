@@ -37,6 +37,7 @@ class BaseSanitizer(object):
     def get_model_field(self, field_name):
         """Returns the Model class field having the given field name.
 
+        :param field_name: The field name
         :return: Field of the Model class
         """
         try:
@@ -45,6 +46,17 @@ class BaseSanitizer(object):
         except FieldDoesNotExist:
             raise SanitizerException("Field {0} does not exist on Model {1}."
                                      .format(field_name, self.model_class))
+
+    def is_model_field_unique(self, field_name):
+        """Returns the value of the field's 'unique' Django attribute in the
+        Model class.
+
+        :param field_name: The field name
+        :return: Whether the field has unique=True
+        :rtype: bool
+        """
+        field = self.get_model_field(field_name)
+        return field.unique
 
     def validate(self, row_object, field_name, field_value):
         """Validates the configuration of the sanitizer against the Model class

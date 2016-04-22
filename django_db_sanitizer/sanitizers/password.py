@@ -36,8 +36,7 @@ class PasswordSanitizer(BaseSanitizer):
         return True
 
     def sanitize(self, row_object, field_name, field_value):
-        """Overrides BaseSanitizer sanitize to simply update all
-        given fields to the password value configured at the class level.
+        """Returns an encoded password using Django's 'make_password'
         """
         return make_password(self.password, hasher=self.algorithm)
 
