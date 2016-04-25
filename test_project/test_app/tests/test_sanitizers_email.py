@@ -9,10 +9,10 @@ from django_db_sanitizer.exceptions import SanitizerValidationException
 from django_db_sanitizer.sanitizers.email import RandomEmailSanitizer
 
 from test_app.models import User
-from test_app.tests.utils import SanitizerTransactionTestCase
+from test_app.tests.utils import SanitizerTestCase
 
 
-class RandomEmailSanitizerTest(SanitizerTransactionTestCase):
+class RandomEmailSanitizerTest(SanitizerTestCase):
 
     model_class = User
     sanitizer_class = RandomEmailSanitizer

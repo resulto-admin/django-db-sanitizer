@@ -10,10 +10,10 @@ from django_db_sanitizer.sanitizers.string import (
 )
 
 from test_app.models import Profile
-from test_app.tests.utils import SanitizerTransactionTestCase
+from test_app.tests.utils import SanitizerTestCase
 
 
-class EmptyStringSanitizerTest(SanitizerTransactionTestCase):
+class EmptyStringSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = EmptyStringSanitizer
@@ -35,7 +35,7 @@ class EmptyStringSanitizerTest(SanitizerTransactionTestCase):
         self.assertEqual(sanitized_value, '')
 
 
-class LoremIpsumSanitizerTest(SanitizerTransactionTestCase):
+class LoremIpsumSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = LoremIpsumSanitizer
@@ -61,7 +61,7 @@ class LoremIpsumSanitizerTest(SanitizerTransactionTestCase):
         self.assertTrue(len(sanitized_value) <= field.max_length)
 
 
-class FixedFormatSanitizerTest(SanitizerTransactionTestCase):
+class FixedFormatSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = FixedFormatSanitizer
@@ -78,7 +78,7 @@ class FixedFormatSanitizerTest(SanitizerTransactionTestCase):
         pass  # TODO
 
 
-class RandomTextSanitizerTest(SanitizerTransactionTestCase):
+class RandomTextSanitizerTest(SanitizerTestCase):
     fixtures = ("profiles",)
 
     model_class = Profile

@@ -13,7 +13,7 @@ class Profile(models.Model):
     initials = models.CharField(max_length=4, blank=True, default="")
 
     phone = models.CharField(max_length=100, blank=False, default="911")
-    mobile_phone = models.CharField(max_length=100, blank=True, default="")
+    mobile_phone = models.CharField(max_length=100, blank=False, unique=True)
 
     address = models.CharField(max_length=500, blank=True, default="")
     city = models.CharField(max_length=250, blank=True, default="")

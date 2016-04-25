@@ -3,7 +3,9 @@ import logging
 from django.core.exceptions import FieldDoesNotExist
 from django.utils.six import python_2_unicode_compatible
 
-from django_db_sanitizer.exceptions import SanitizerException
+from django_db_sanitizer.exceptions import (
+    SanitizerException, SanitizerValidationException
+)
 
 
 logger = logging.getLogger(__name__)
@@ -32,7 +34,8 @@ class BaseSanitizer(object):
         if is_valid:
             return self.sanitize(row_object, field_name, field_value)
         else:
-            raise SanitizerException("Validation for {0} failed.".format(self))
+            raise SanitizerValidationException(
+                "Validation for {0} failed.".format(self))
 
     def get_model_field(self, field_name):
         """Returns the Model class field having the given field name.

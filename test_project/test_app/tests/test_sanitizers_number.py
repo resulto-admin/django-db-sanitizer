@@ -4,10 +4,10 @@ from django_db_sanitizer.sanitizers.number import (
 )
 
 from test_app.models import Profile
-from test_app.tests.utils import SanitizerTransactionTestCase
+from test_app.tests.utils import SanitizerTestCase
 
 
-class ZeroSanitizerTest(SanitizerTransactionTestCase):
+class ZeroSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = ZeroSanitizer
@@ -37,7 +37,7 @@ class ZeroSanitizerTest(SanitizerTransactionTestCase):
         self.assertEqual(sanitized_value, 0)
 
 
-class RandomIntegerSanitizerTest(SanitizerTransactionTestCase):
+class RandomIntegerSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = RandomIntegerSanitizer

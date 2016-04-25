@@ -2,13 +2,16 @@ from django_db_sanitizer.exceptions import SanitizerValidationException
 from django_db_sanitizer.sanitizers.null import NullSanitizer
 
 from test_app.models import Profile
-from test_app.tests.utils import SanitizerTransactionTestCase
+from test_app.tests.utils import SanitizerTestCase
 
 
-class NullSanitizerTest(SanitizerTransactionTestCase):
+class NullSanitizerTest(SanitizerTestCase):
 
     model_class = Profile
     sanitizer_class = NullSanitizer
+
+    def test_str(self):
+        self.assertEqual(str(self.sanitizer), "NullSanitizer")
 
     def test_validate_null_true(self):
         is_valid = self.sanitizer.validate({}, "month_of_birth", 1)

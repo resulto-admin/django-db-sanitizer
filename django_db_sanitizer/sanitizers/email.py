@@ -51,7 +51,7 @@ class RandomEmailSanitizer(BaseSanitizer):
         if self.is_model_field_unique(field_name):
             new_email = new_email.replace(
                 "@", ".{0}.{1}@".format(self.fake.word(),
-                                       randint(0, 999999999)))
+                                        randint(0, 999999999)))
 
         return new_email
 

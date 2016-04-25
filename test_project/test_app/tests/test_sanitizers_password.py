@@ -2,10 +2,10 @@ from django_db_sanitizer.exceptions import SanitizerValidationException
 from django_db_sanitizer.sanitizers.password import PasswordSanitizer
 
 from test_app.models import Profile, User
-from test_app.tests.utils import SanitizerTransactionTestCase
+from test_app.tests.utils import SanitizerTestCase
 
 
-class PasswordSanitizerTest(SanitizerTransactionTestCase):
+class PasswordSanitizerTest(SanitizerTestCase):
     fixtures = ("profiles",)
 
     model_class = Profile
