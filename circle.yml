@@ -9,9 +9,8 @@ dependencies:
     - pip install -r requirements-test.txt
 test:
   override:
-    - cd test_project
-    - coverage run --source='..' manage.py test -v 2
+    - cd test_project; coverage run --source='..' manage.py test -v 2
     - flake8
     - codecov
   post:
-    - coverage html
+    - cd test_project; coverage html
