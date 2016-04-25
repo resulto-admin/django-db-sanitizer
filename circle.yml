@@ -10,7 +10,7 @@ dependencies:
 test:
   override:
     - cd test_project; coverage run --source='..' manage.py test -v 2
-    - flake8
+    - flake8 --ignore='E265' --exclude='*/test_app/*,*/migrations/*,*settings*,*/fetchers/__init__.py,*/sanitizers/__init__.py,*/updaters/__init__.py,*/workers/__init__.py'
     - cd test_project; codecov
   post:
     - cd test_project; coverage html
