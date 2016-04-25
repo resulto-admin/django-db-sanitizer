@@ -7,26 +7,12 @@ class RandomAddressSanitizer(BaseSanitizer):
     existing addresses.
     """
 
-    # Some setup/config to split the data generation by element would be nice
-    #   Street Number
-    #   Street Name
-    #   Postal Code
-    #   etc...
-
+    # TODO To be done for a future version
 
     def sanitize(self, row_object, field_name, field_value):
-        """Executes the sanitizing operation on a single field and returns
-        the result.
-
-        Override this method in concrete Sanitizer classes.
+        """
 
         :param field_value: Value of a field to be sanitized
         :return: Sanitized field value
         """
         return field_value
-
-    def _generate_street_number(self):
-        pass
-
-    def _generate_street_name(self):
-        pass

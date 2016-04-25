@@ -77,7 +77,7 @@ class LoremIpsumSanitizer(BaseSanitizer):
 
 class FixedFormatSanitizer(BaseSanitizer):
 
-    # Config for expected format
+    # TODO To be done for a future version
 
     def sanitize(self, row_object, field_name, field_value):
         """
