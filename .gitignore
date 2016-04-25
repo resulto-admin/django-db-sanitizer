@@ -10,4 +10,5 @@
 .idea/
 .tox/
 dist/
+htmlcov/
 test_project.db

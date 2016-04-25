@@ -1,0 +1,17 @@
+general:
+  artifacts:
+    - "htmlcov"
+machine:
+  python:
+    version: 3.5.0
+dependencies:
+  override:
+    - pip install -r requirements-test.txt
+test:
+  override:
+    - cd test_project
+    - coverage run --source='..' manage.py test -v 2
+    - flake8
+    - codecov
+  post:
+    - coverage html
