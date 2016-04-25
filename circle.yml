@@ -11,6 +11,6 @@ test:
   override:
     - cd test_project; coverage run --source='..' manage.py test -v 2
     - flake8
-    - codecov
+    - cd test_project; codecov
   post:
     - cd test_project; coverage html
