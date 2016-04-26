@@ -5,8 +5,14 @@ from django.utils.six import python_2_unicode_compatible
 from test_app.constants import MONTHS, DAY_OF_BIRTH
 
 
+class AbstractProfile(models.Model):
+
+    class Meta:
+        abstract = True
+
+
 @python_2_unicode_compatible
-class Profile(models.Model):
+class Profile(AbstractProfile):
     user = models.OneToOneField(User, related_name="profile")
     card_number = models.CharField(max_length=250, null=True, blank=True,
                                    default="")
