@@ -54,8 +54,14 @@ class RandomEmailSanitizerTest(SanitizerTestCase):
         self.assertNotEqual(sanitized_value.split("@")[0], "blah")
         self.assertEqual(len(sanitized_value.split("@")), 2)
 
-    def test_sanitize_random_email(self):
+    def test_sanitize_random_email_existing_value_bad_format_1(self):
         sanitized_value = self.sanitizer.sanitize({}, "email", "blah")
+        self.assertTrue("blah" not in sanitized_value)
+        self.assertFalse(bool(re.search(r"(\.\d+@){1}", sanitized_value)))
+        self.assertEqual(len(sanitized_value.split("@")), 2)
+
+    def test_sanitize_random_email_existing_value_bad_format_2(self):
+        sanitized_value = self.sanitizer.sanitize({}, "email", "blah@")
         self.assertTrue("blah" not in sanitized_value)
         self.assertFalse(bool(re.search(r"(\.\d+@){1}", sanitized_value)))
         self.assertEqual(len(sanitized_value.split("@")), 2)

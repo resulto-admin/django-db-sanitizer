@@ -3,7 +3,9 @@ try:
 except ImportError:
     from mock import Mock
 
-from django_db_sanitizer.exceptions import SanitizerValidationException
+from django_db_sanitizer.exceptions import (
+    SanitizerException, SanitizerValidationException
+)
 from django_db_sanitizer.sanitizers import BaseSanitizer
 
 from test_app.models import Profile
@@ -32,6 +34,10 @@ class BaseSanitizerTest(SanitizerTestCase):
         field = self.sanitizer.get_model_field("card_number")
         expected_field = self.model_class._meta.get_field("card_number")
         self.assertEqual(field, expected_field)
+
+    def test_get_model_field_does_not_exist(self):
+        with self.assertRaises(SanitizerException):
+            self.sanitizer.get_model_field("what")
 
     def test_is_model_field_unique_field_unique(self):
         is_unique = self.sanitizer.is_model_field_unique("mobile_phone")
