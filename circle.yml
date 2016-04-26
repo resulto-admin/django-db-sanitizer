@@ -1,6 +1,6 @@
 general:
   artifacts:
-    - "htmlcov"
+    - "test_project/htmlcov"
 machine:
   python:
     version: 3.5.0
