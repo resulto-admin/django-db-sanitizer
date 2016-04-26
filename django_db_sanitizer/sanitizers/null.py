@@ -4,6 +4,9 @@ from django_db_sanitizer.sanitizers.base import BaseSanitizer
 
 class NullSanitizer(BaseSanitizer):
     """Sanitizes fields by updating them to `None` values in the database.
+
+    XXX For now, this sanitizer will not work with
+    BatchMultiValuePostgresUpdater.
     """
 
     def validate(self, row_object, field_name, field_value):

@@ -1,9 +1,7 @@
 from django.core.exceptions import FieldDoesNotExist
 from django.test import TestCase, TransactionTestCase
-from django.utils.six import python_2_unicode_compatible
 
 
-@python_2_unicode_compatible
 class UpdaterTransactionTestCase(TransactionTestCase):
 
     model_class = None
@@ -11,9 +9,6 @@ class UpdaterTransactionTestCase(TransactionTestCase):
     sanitizer_class = None
     fields_to_sanitize = None
     updater_class = None
-
-    def __str__(self):
-        return "{0}".format(self.__class__.__name__)
 
     def __init__(self, *args, **kwargs):
         if not self.model_class:
@@ -52,14 +47,10 @@ class UpdaterTransactionTestCase(TransactionTestCase):
                             .format(field_name, self.model_class))
 
 
-@python_2_unicode_compatible
 class FetcherTestCase(TestCase):
 
     model_class = None
     fetcher_class = None
-
-    def __str__(self):
-        return "{0}".format(self.__class__.__name__)
 
     def __init__(self, *args, **kwargs):
         if not self.model_class:
@@ -86,14 +77,10 @@ class FetcherTestCase(TestCase):
                             .format(field_name, self.model_class))
 
 
-@python_2_unicode_compatible
 class SanitizerTestCase(TestCase):
 
     model_class = None
     sanitizer_class = None
-
-    def __str__(self):
-        return "{0}".format(self.__class__.__name__)
 
     def __init__(self, *args, **kwargs):
         if not self.model_class:

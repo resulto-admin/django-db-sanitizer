@@ -11,6 +11,9 @@ from django_db_sanitizer.settings import TEXT_LOCALE
 
 class EmptyStringSanitizer(BaseSanitizer):
     """Sanitizes fields by updating them to '' values in the database.
+
+    XXX For now, this sanitizer will not work with
+    BatchMultiValuePostgresUpdater.
     """
 
     def validate(self, row_object, field_name, field_value):

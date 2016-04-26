@@ -31,7 +31,7 @@ def pg_bulk_update(model, filter_column_name, update_column_name,
     filter_column_data.
 
     XXX Will not currently work if trying to update a column cell with an
-    empty string/value
+    empty string or None
 
     :param model: Django model to be updated.
     :param str filter_column_name: Name of the field used to match rows
