@@ -67,6 +67,10 @@ try:
             "HOST": "127.0.0.1",
         }
     }
+    if os.environ.get("CIRCLECI") == "true":
+        current_module = sys.modules[__name__]
+        from test_project.circleci_settings import configure
+        configure(current_module)
 except:
     # Testing with SQLite3 as fallback
     DATABASES = {
