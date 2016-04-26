@@ -1,8 +1,3 @@
-try:
-    from unittest.mock import Mock
-except ImportError:
-    from mock import Mock
-
 from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase
 
