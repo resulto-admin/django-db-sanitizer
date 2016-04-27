@@ -1,0 +1,16 @@
+general:
+  artifacts:
+    - "test_project/htmlcov"
+machine:
+  python:
+    version: 3.5.0
+dependencies:
+  override:
+    - pip install -r requirements-test.txt
+test:
+  override:
+    - cd test_project; coverage run --source='..' manage.py test -v 2
+    - flake8 --ignore='E265' --exclude='*/test_app/*,*/migrations/*,*settings*,*/fetchers/__init__.py,*/sanitizers/__init__.py,*/updaters/__init__.py,*/workers/__init__.py'
+    - cd test_project; codecov
+  post:
+    - cd test_project; coverage html
