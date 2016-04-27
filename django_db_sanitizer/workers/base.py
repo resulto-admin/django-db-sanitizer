@@ -27,7 +27,7 @@ class BaseWorker(object):
         fields.
         """
         fetcher = self.fetcher_class(self.model_class)
-        sanitizer = self.sanitizer_class()
+        sanitizer = self.sanitizer_class(self.model_class)
         updater = self.updater_class(fetcher, sanitizer,
                                      self.fields_to_sanitize)
         updater.execute()

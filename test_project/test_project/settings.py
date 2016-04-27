@@ -53,26 +53,33 @@ WSGI_APPLICATION = "test_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-# Testing with SQLite3
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "test_project.db"),
+try:
+    # Testing with PostgreSQL
+    # (Don't forget to install psycopg2 and setup your local database)
+    import psycopg2
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "django_db_sanitizer",
+            "USER": "django_db_sanitizer",
+            "PASSWORD": "django_db_sanitizer",
+            "PORT": 5432,
+            "HOST": "127.0.0.1",
+        }
     }
-}
+    if os.environ.get("CIRCLECI") == "true":
+        current_module = sys.modules[__name__]
+        from test_project.circleci_settings import configure
+        configure(current_module)
+except:
+    # Testing with SQLite3 as fallback
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "test_project.db"),
+        }
+    }
 
-# Testing with PostgreSQL
-# (Don't forget to install psycopg2 and setup your local database)
-# DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.postgresql_psycopg2",
-#             "NAME": "django_db_sanitizer",
-#             "USER": "django_db_sanitizer",
-#             "PASSWORD": "django_db_sanitizer",
-#             "PORT": 5432,
-#             "HOST": "127.0.0.1",
-#         }
-# }
 
 LANGUAGE_CODE = 'en-us'
 

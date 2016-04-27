@@ -1,6 +1,6 @@
 from django.utils.module_loading import autodiscover_modules
 
-from django_db_sanitizer.registry import SanitizerRegistry, sanitizer_registry
+from django_db_sanitizer.registry import sanitizer_registry
 from django_db_sanitizer.fetchers import BaseFetcher
 from django_db_sanitizer.sanitizers import (
     RandomAddressSanitizer, RandomEmailSanitizer, NullSanitizer, ZeroSanitizer,

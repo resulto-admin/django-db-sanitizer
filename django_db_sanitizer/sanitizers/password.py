@@ -1,14 +1,18 @@
-from django.contrib.auth.hashers import get_hashers, get_hashers_by_algorithm
+from django.contrib.auth.hashers import (
+    get_hashers, get_hashers_by_algorithm, make_password
+)
 
 from django_db_sanitizer.sanitizers.base import BaseSanitizer
-from django_db_sanitizer.exceptions import SanitizerException
+from django_db_sanitizer.exceptions import SanitizerValidationException
 
 
 class PasswordSanitizer(BaseSanitizer):
     """Sanitizes configured fields in `fields_to_sanitize` by updating them
     to the same password value for all rows. Encrypts said password with the
-    configured algorithm. By default, acts the same as Django does by picking
-    the first alrogithm in the PASSWORD_HASHERS setting.
+    configured algorithm.
+
+    By default, acts the same as Django does by picking the first alrogithm in
+    the PASSWORD_HASHERS setting (uses 'make_password' from Django codebase).
     """
 
     algorithm = "default"
@@ -19,25 +23,25 @@ class PasswordSanitizer(BaseSanitizer):
 
     password = "12345"
 
-    def sanitize(self, row_object, field_name, field_value):
-        """Overrides BaseSanitizer sanitize to simply update all
-        given fields to the password value configured at the class level.
-        """
-        hasher = self.get_hasher()
-        salt = hasher.salt()
-        encoded_password = hasher.encode(self.password, salt)
-        return encoded_password
-
-    def get_hasher(self):
-        if self.algorithm == 'default':
-            return get_hashers()[0]
-
-        hashers = get_hashers_by_algorithm()
+    def validate(self, row_object, field_name, field_value):
         try:
-            return hashers[self.algorithm]
+            self.get_hasher()
         except KeyError:
-            raise SanitizerException(
+            raise SanitizerValidationException(
                 "Password hashing algorithm {0} not found for {1} sanitizer. "
                 "Do you have this algorithm configured in your "
                 "PASSWORD_HASHERS Django setting?"
                 .format(self.algorithm, self))
+
+        return True
+
+    def sanitize(self, row_object, field_name, field_value):
+        """Returns an encoded password using Django's 'make_password'
+        """
+        return make_password(self.password, hasher=self.algorithm)
+
+    def get_hasher(self):
+        if self.algorithm == 'default':
+            return get_hashers()[0]
+        hashers = get_hashers_by_algorithm()
+        return hashers[self.algorithm]

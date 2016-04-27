@@ -2,7 +2,8 @@ from django.contrib.auth.models import User
 
 from django_db_sanitizer import (
     sanitizer_registry, BaseFetcher, NullSanitizer, RandomTextSanitizer,
-    RandomIntegerSanitizer, PasswordSanitizer,
+    LoremIpsumSanitizer, RandomIntegerSanitizer, PasswordSanitizer,
+    RandomEmailSanitizer,
     SingleValuePerFieldUpdater, SingleValuePerFieldRowUpdater,
     BatchMultiValuePostgresUpdater
 )
@@ -25,6 +26,8 @@ class MyCustomFetcher(BaseFetcher):
 # -- Simplest Registration examples
 # Set a different random text to "internal_notes" per Profile object.
 sanitizer_registry.register(Profile, ["internal_notes"], RandomTextSanitizer)
+sanitizer_registry.register(Profile, ["admin_notes"], LoremIpsumSanitizer)
+
 
 # Set 'None' to all rows of field "card_number" in Profile model.
 # Specify an updater class optimized for updating all rows to the same value.
@@ -49,6 +52,10 @@ sanitizer_registry.register(
 sanitizer_registry.register(
     Profile, ["importance_rank"], RandomIntegerSanitizer,
     SingleValuePerFieldRowUpdater)
+# Different random email for every User
+sanitizer_registry.register(
+    User, ["email"], RandomEmailSanitizer, SingleValuePerFieldRowUpdater
+)
 
 
 # TESTING WITH POSTGRES
